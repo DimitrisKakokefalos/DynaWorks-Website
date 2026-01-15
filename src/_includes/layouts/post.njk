@@ -1,0 +1,101 @@
+---
+layout: layouts/base.njk
+---
+
+<article class="blog-post">
+    <header class="post-hero">
+        <div class="container">
+            <a href="/blog/" class="back-link">← Πίσω στο Blog</a>
+            <div class="post-meta">
+                <span class="tag">{{ category }}</span>
+                <span class="post-date">{{ date | dateDisplay }}</span>
+                <span class="reading-time">{{ content | readingTime }}</span>
+            </div>
+            <h1>{{ title }}</h1>
+            <p class="post-description">{{ description }}</p>
+        </div>
+    </header>
+    
+    {% if featuredImage %}
+    <div class="post-featured-image">
+        <div class="container">
+            <img src="{{ featuredImage }}" alt="{{ title }}" loading="lazy">
+        </div>
+    </div>
+    {% endif %}
+    
+    <div class="post-body">
+        <div class="container">
+            <div class="post-content-wrapper">
+                <div class="post-content">
+                    {{ content | safe }}
+                </div>
+                
+                <aside class="post-sidebar">
+                    <div class="share-section">
+                        <h4>Κοινοποίηση</h4>
+                        <div class="share-buttons">
+                            <a href="https://www.linkedin.com/shareArticle?mini=true&url={{ site.url }}{{ page.url }}&title={{ title | urlencode }}" target="_blank" rel="noopener" class="share-btn linkedin">
+                                LinkedIn
+                            </a>
+                            <a href="https://twitter.com/intent/tweet?url={{ site.url }}{{ page.url }}&text={{ title | urlencode }}" target="_blank" rel="noopener" class="share-btn twitter">
+                                Twitter
+                            </a>
+                            <a href="https://www.facebook.com/sharer/sharer.php?u={{ site.url }}{{ page.url }}" target="_blank" rel="noopener" class="share-btn facebook">
+                                Facebook
+                            </a>
+                        </div>
+                    </div>
+                    
+                    {% if tags %}
+                    <div class="tags-section">
+                        <h4>Tags</h4>
+                        <div class="tags-list">
+                            {% for tag in tags %}
+                            <span class="tag">{{ tag }}</span>
+                            {% endfor %}
+                        </div>
+                    </div>
+                    {% endif %}
+                </aside>
+            </div>
+        </div>
+    </div>
+</article>
+
+<section class="related-posts">
+    <div class="container">
+        <div class="section-header">
+            <span class="section-tag">Related</span>
+            <h2>Σχετικά Άρθρα</h2>
+        </div>
+        <div class="posts-grid">
+            {% set relatedPosts = collections.posts | rejectattr("url", "equalto", page.url) %}
+            {% for post in relatedPosts | head(3) %}
+            <article class="post-card">
+                {% if post.data.featuredImage %}
+                <div class="post-image">
+                    <img src="{{ post.data.featuredImage }}" alt="{{ post.data.title }}" loading="lazy">
+                </div>
+                {% endif %}
+                <div class="post-content">
+                    <div class="post-meta">
+                        <span class="tag">{{ post.data.category }}</span>
+                    </div>
+                    <h3><a href="{{ post.url }}">{{ post.data.title }}</a></h3>
+                </div>
+            </article>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+
+<section class="blog-cta">
+    <div class="container">
+        <div class="cta-content">
+            <h2>Χρειάζεστε βοήθεια με automation;</h2>
+            <p>Ας συζητήσουμε πώς μπορούμε να βοηθήσουμε την επιχείρησή σας.</p>
+            <a href="/pages/booking.html" class="cta-pill">Κλείστε Δωρεάν Συνάντηση</a>
+        </div>
+    </div>
+</section>

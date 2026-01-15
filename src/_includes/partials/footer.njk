@@ -1,0 +1,46 @@
+<footer class="site-footer">
+    <div class="container">
+        <div class="footer-grid">
+            <div class="footer-brand">
+                <img src="/assets/dw-logo.svg" alt="{{ site.name }}" width="48" height="48">
+                <p>Intelligent Automation για επιχειρήσεις που θέλουν να αναπτυχθούν.</p>
+            </div>
+            
+            <div class="footer-nav">
+                <h4>Πλοήγηση</h4>
+                <a href="/">Αρχική</a>
+                <a href="/services">Υπηρεσίες</a>
+                <a href="/work">Δουλειές</a>
+                <a href="/blog">Blog</a>
+                <a href="/contact">Επικοινωνία</a>
+            </div>
+            
+            <div class="footer-services">
+                <h4>Υπηρεσίες</h4>
+                <a href="/services#automation">Workflow Automation</a>
+                <a href="/services#ai">AI Agents</a>
+                <a href="/services#web">Web Development</a>
+                <a href="/services#consulting">Business Consulting</a>
+            </div>
+            
+            <div class="footer-contact">
+                <h4>Επικοινωνία</h4>
+                <p>{{ site.email }}</p>
+                <p>{{ site.phone }}</p>
+                <p>{{ site.location }}</p>
+                <div class="social-links">
+                    <a href="{{ site.social.linkedin }}" target="_blank" rel="noopener">LinkedIn</a>
+                    <a href="{{ site.social.instagram }}" target="_blank" rel="noopener">Instagram</a>
+                </div>
+            </div>
+        </div>
+        
+        <div class="footer-bottom">
+            <p>&copy; {% year %} {{ site.name }}. All rights reserved.</p>
+            <div class="legal-links">
+                <a href="/privacy">Πολιτική Απορρήτου</a>
+                <a href="/terms">Όροι Χρήσης</a>
+            </div>
+        </div>
+    </div>
+</footer>

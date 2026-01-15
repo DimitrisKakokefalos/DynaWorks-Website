@@ -1,0 +1,106 @@
+# ==========================================
+# DYNAWORKS - NETLIFY CONFIGURATION
+# Updated for /pages/ structure
+# ==========================================
+
+[build]
+  publish = "."
+  functions = "netlify/functions"
+
+# ==========================================
+# REDIRECTS - Updated for /pages/ folder
+# ==========================================
+
+# Homepage redirect
+[[redirects]]
+  from = "/"
+  to = "/pages/index.html"
+  status = 200
+
+# API endpoint
+[[redirects]]
+  from = "/api/chat"
+  to = "/.netlify/functions/chat"
+  status = 200
+
+# Clean URLs - redirect to /pages/
+[[redirects]]
+  from = "/services"
+  to = "/pages/services.html"
+  status = 200
+
+[[redirects]]
+  from = "/contact"
+  to = "/pages/contact.html"
+  status = 200
+
+[[redirects]]
+  from = "/work"
+  to = "/pages/work.html"
+  status = 200
+
+[[redirects]]
+  from = "/booking"
+  to = "/pages/booking.html"
+  status = 200
+
+[[redirects]]
+  from = "/index"
+  to = "/pages/index.html"
+  status = 200
+
+# 404 fallback
+[[redirects]]
+  from = "/*"
+  to = "/pages/404.html"
+  status = 404
+
+# ==========================================
+# SECURITY HEADERS
+# ==========================================
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Frame-Options = "DENY"
+    X-Content-Type-Options = "nosniff"
+    X-XSS-Protection = "1; mode=block"
+    Referrer-Policy = "strict-origin-when-cross-origin"
+    Permissions-Policy = "camera=(), microphone=(), geolocation=()"
+
+# ==========================================
+# CACHE HEADERS
+# ==========================================
+[[headers]]
+  for = "/assets/*"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
+[[headers]]
+  for = "/carousel-assets/*"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
+[[headers]]
+  for = "/styles/*"
+  [headers.values]
+    Cache-Control = "public, max-age=604800"
+
+[[headers]]
+  for = "/responsiveness/*"
+  [headers.values]
+    Cache-Control = "public, max-age=604800"
+
+[[headers]]
+  for = "*.html"
+  [headers.values]
+    Cache-Control = "public, max-age=0, must-revalidate"
+
+# ==========================================
+# API CORS
+# ==========================================
+[[headers]]
+  for = "/api/*"
+  [headers.values]
+    Access-Control-Allow-Origin = "https://dynaworks.gr"
+    Access-Control-Allow-Methods = "POST, OPTIONS"
+    Access-Control-Allow-Headers = "Content-Type"

@@ -1,0 +1,360 @@
+/* ==========================================
+   SERVICES PAGE SPECIFIC STYLES
+   ========================================== */
+:root {
+    --service-padding: 100px 0;
+}
+
+/* 1. SERVICES HERO SECTION (Dark Theme) */
+.services-hero-section {
+    min-height: 90vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 140px var(--container-padding) 80px;
+    background: var(--darker);
+    color: var(--light);
+    border-bottom: var(--border-style);
+    position: relative;
+    overflow: hidden;
+}
+
+.services-hero-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle at 80% 20%, rgba(255, 107, 53, 0.15) 0%, transparent 60%);
+    pointer-events: none;
+}
+
+.services-hero-section h1 {
+    font-size: clamp(4rem, 10vw, 8rem);
+    margin-bottom: 2rem;
+    max-width: 1000px;
+}
+
+.hero-tag {
+    font-size: 1rem;
+    font-style: italic;
+    color: var(--primary);
+    opacity: 0.8;
+    margin-bottom: 2rem;
+}
+
+.hero-description {
+    font-size: 1.5rem;
+    line-height: 1.6;
+    max-width: 700px;
+    color: var(--beige);
+    opacity: 0.85;
+    margin-bottom: 4rem;
+}
+
+.nav-pills-bar {
+    display: flex;
+    gap: 15px;
+    flex-wrap: wrap;
+}
+
+.nav-pill {
+    display: inline-block;
+    padding: 12px 28px;
+    border-radius: 50px;
+    font-size: 1rem;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    color: var(--beige);
+    opacity: 0.8;
+}
+
+.nav-pill:hover,
+.nav-pill.active {
+    background: var(--primary);
+    border-color: var(--primary);
+    color: var(--darker);
+    opacity: 1;
+}
+
+/* 2. BASE SERVICE SECTION STYLES */
+.service-section {
+    padding: var(--service-padding);
+}
+
+.service-header {
+    border-bottom: 1px solid;
+    padding-bottom: 3rem;
+    margin-bottom: 4rem;
+    display: flex;
+    align-items: flex-end;
+    gap: 2rem;
+}
+
+.service-number {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 3rem;
+    font-weight: 700;
+    opacity: 0.5;
+    line-height: 1;
+}
+
+.service-section h2 {
+    font-size: clamp(2.5rem, 5vw, 4rem);
+    line-height: 1.1;
+}
+
+.service-content-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+    align-items: center;
+}
+
+.service-subtitle {
+    font-size: 1.5rem;
+    font-weight: 500;
+    margin-bottom: 3rem;
+}
+
+.service-description-long {
+    font-size: 1.1rem;
+    line-height: 1.7;
+    margin-bottom: 3rem;
+    opacity: 0.9;
+}
+
+/* List Styling (from index.html) */
+.service-list {
+    list-style: none;
+    padding: 0;
+    margin-bottom: 3rem;
+}
+
+.service-list li {
+    display: flex;
+    align-items: center;
+    font-size: 1.05rem;
+    margin-bottom: 1rem;
+    font-weight: 500;
+}
+
+.list-icon {
+    font-size: 1.2rem;
+    color: var(--primary);
+    margin-right: 12px;
+    font-weight: 700;
+    line-height: 1;
+}
+
+/* 3. THEMES REFACTOR: Use Generic Themes */
+
+/* Base Dark Theme - Used for S02 (Website), S04 (Consulting) */
+.service-section.service-dark {
+    background: var(--darker);
+    color: var(--light);
+}
+
+.service-section.service-dark .service-header {
+    border-color: rgba(255, 255, 255, 0.15);
+}
+
+.service-section.service-dark .service-number {
+    color: var(--light);
+    opacity: 0.5;
+}
+
+.service-section.service-dark .request-btn {
+    background: var(--primary);
+    color: var(--darker);
+}
+
+.service-section.service-dark .request-btn:hover {
+    background: var(--beige);
+    color: var(--darker);
+}
+
+.service-section.service-dark .list-icon {
+    color: var(--primary);
+}
+
+.service-section.service-dark .visual-placeholder img {
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+}
+
+
+/* Base Light Theme - Used for S01 (Automation), S03 (Content) */
+.service-section.service-light {
+    background: var(--beige);
+    color: var(--darker);
+}
+
+.service-section.service-light .service-header {
+    border-color: var(--border-color);
+}
+
+.service-section.service-light .service-number {
+    color: var(--primary); /* Accent color for the number in light sections */
+}
+
+.service-section.service-light .request-btn {
+    background: var(--darker);
+    color: var(--light);
+}
+
+.service-section.service-light .request-btn:hover {
+    background: var(--primary);
+    color: var(--darker);
+}
+
+.service-section.service-light .visual-placeholder img {
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.1);
+}
+
+.service-section.service-light .list-icon {
+    color: var(--darker); /* Dark icon on light background for better contrast */
+}
+
+/* 4. ANIMATION & VISUALS */
+
+.service-visual {
+    display: flex;
+    justify-content: center;
+}
+
+.visual-placeholder img {
+    border-radius: 20px;
+    transition: transform 0.4s ease;
+    display: block;
+}
+
+.visual-placeholder img:hover {
+    transform: scale(1.02);
+}
+
+/* Website Animation (Dark Section) */
+.website-visual {
+    position: relative;
+    overflow: hidden;
+}
+
+.animated-circle {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 200px;
+    height: 200px;
+    background: rgba(255, 107, 53, 0.2); /* Primary color accent */
+    border-radius: 50%;
+    transform: translate(-50%, -50%) scale(0);
+    animation: scalePulse 3s ease-out infinite;
+    pointer-events: none;
+    z-index: 1;
+}
+
+.website-visual img {
+    position: relative;
+    z-index: 2;
+}
+
+@keyframes scalePulse {
+    0% {
+        transform: translate(-50%, -50%) scale(0.5);
+        opacity: 0.5;
+    }
+    50% {
+        transform: translate(-50%, -50%) scale(1.5);
+        opacity: 0.1;
+    }
+    100% {
+        transform: translate(-50%, -50%) scale(0.5);
+        opacity: 0.5;
+    }
+}
+
+/* 5. RESPONSIVE & LAYOUT */
+
+/* Reverse Order Fix for Light Section visuals (Visual on Left) */
+.reverse-order .service-info {
+    order: 2;
+}
+
+.reverse-order .service-visual {
+    order: 1;
+}
+
+@media (max-width: 1024px) {
+    .service-content-grid {
+        grid-template-columns: 1fr;
+        gap: 60px;
+    }
+
+    .service-visual {
+        order: -1; /* Visual always on top in mobile */
+    }
+
+    /* Override reverse-order on mobile */
+    .reverse-order .service-info {
+        order: 1; 
+    }
+
+    .reverse-order .service-visual {
+        order: -1; 
+    }
+
+    .service-section {
+        padding: 80px 0;
+    }
+
+    .service-header {
+        margin-bottom: 3rem;
+    }
+
+    .nav-pills-bar {
+        justify-content: center;
+    }
+}
+
+@media (max-width: 768px) {
+    .services-hero-section {
+        padding: 120px 0 60px;
+        text-align: center;
+    }
+
+    .services-hero-section h1 {
+        font-size: 3.5rem;
+    }
+
+    .hero-description {
+        font-size: 1.2rem;
+    }
+
+    .service-section h2 {
+        font-size: 2rem;
+    }
+
+    .service-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.5rem;
+    }
+
+    .service-number {
+        font-size: 2rem;
+    }
+
+    .service-subtitle {
+        font-size: 1.3rem;
+    }
+    
+    .service-description-long {
+        font-size: 1rem;
+    }
+
+    .big-btn {
+        width: 100%;
+        text-align: center;
+    }
+}

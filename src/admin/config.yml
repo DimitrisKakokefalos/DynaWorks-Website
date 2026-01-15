@@ -1,0 +1,48 @@
+backend:
+  name: git-gateway
+  branch: main
+
+locale: 'el'
+
+media_folder: "src/assets/blog"
+public_folder: "/assets/blog"
+
+collections:
+  - name: "posts"
+    label: "Blog Posts"
+    folder: "src/blog/posts"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - { label: "Layout", name: "layout", widget: "hidden", default: "layouts/post.njk" }
+      - { label: "Τίτλος", name: "title", widget: "string" }
+      - { label: "Περιγραφή", name: "description", widget: "text" }
+      - { label: "Ημερομηνία", name: "date", widget: "datetime" }
+      - { label: "Συγγραφέας", name: "author", widget: "string", default: "DynaWorks Team" }
+      - label: "Κατηγορία"
+        name: "category"
+        widget: "select"
+        options:
+          - "Automation"
+          - "Case Study"
+          - "AI"
+          - "Web Dev"
+          - "News"
+          - "Tips"
+      - { label: "Εικόνα", name: "featuredImage", widget: "image", required: false }
+      - { label: "Tags", name: "tags", widget: "list", required: false }
+      - { label: "Περιεχόμενο", name: "body", widget: "markdown" }
+
+  - name: "settings"
+    label: "Site Settings"
+    files:
+      - label: "Site Info"
+        name: "site"
+        file: "src/_data/site.json"
+        fields:
+          - { label: "Site Name", name: "name", widget: "string" }
+          - { label: "Description", name: "description", widget: "text" }
+          - { label: "URL", name: "url", widget: "string" }
+          - { label: "Email", name: "email", widget: "string" }
+          - { label: "Phone", name: "phone", widget: "string" }
+          - { label: "Location", name: "location", widget: "string" }

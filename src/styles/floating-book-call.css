@@ -1,0 +1,137 @@
+/* ==========================================
+   FLOATING BOOK A CALL BUTTON
+   Position: Bottom Center
+   Shows after hero section
+   Only for index.html
+   ========================================== */
+
+.floating-chat-btn {
+    position: fixed;
+    bottom: 30px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 9990;
+    cursor: pointer;
+    
+    /* Hidden by default - shows after scroll */
+    opacity: 0;
+    visibility: hidden;
+    transform: translateX(-50%) translateY(20px);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.floating-chat-btn.visible {
+    opacity: 1;
+    visibility: visible;
+    transform: translateX(-50%) translateY(0);
+}
+
+.floating-chat-btn.visible:hover {
+    transform: translateX(-50%) translateY(-5px);
+}
+
+.chat-btn-content {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    background: var(--darker, #1a1a1a);
+    padding: 14px 28px;
+    border-radius: 50px;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    transition: all 0.3s ease;
+}
+
+.floating-chat-btn:hover .chat-btn-content {
+    background: var(--primary, #ff6b35);
+    box-shadow: 0 15px 50px rgba(255, 107, 53, 0.4);
+}
+
+.chat-btn-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    width: 20px;
+    height: 20px;
+    color: var(--primary, #ff6b35);
+    transition: all 0.3s ease;
+}
+
+.chat-btn-icon svg {
+    width: 20px;
+    height: 20px;
+}
+
+.floating-chat-btn:hover .chat-btn-icon {
+    color: #fff;
+}
+
+.chat-btn-text {
+    color: #fff;
+    font-family: 'Space Grotesk', sans-serif;
+    font-weight: 600;
+    font-size: 0.95rem;
+    white-space: nowrap;
+    line-height: 1;
+}
+
+/* ==========================================
+   MOBILE RESPONSIVE
+   ========================================== */
+@media (max-width: 768px) {
+    .floating-chat-btn {
+        bottom: 20px;
+    }
+    
+    .chat-btn-content {
+        padding: 14px 24px;
+        gap: 10px;
+        justify-content: center;
+    }
+    
+    .chat-btn-icon {
+        flex-shrink: 0;
+    }
+    
+    .chat-btn-text {
+        font-size: 0.85rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .floating-chat-btn {
+        bottom: 16px;
+    }
+    
+    .chat-btn-content {
+        padding: 12px 20px;
+        gap: 8px;
+    }
+    
+    .chat-btn-text {
+        font-size: 0.8rem;
+    }
+}
+
+/* Icon-only option for very small screens (optional) */
+@media (max-width: 360px) {
+    .chat-btn-text {
+        display: none;
+    }
+    
+    .chat-btn-content {
+        padding: 14px;
+        border-radius: 50%;
+    }
+}
+
+/* Safe area for notched phones */
+@supports (padding: max(0px)) {
+    @media (max-width: 768px) {
+        .floating-chat-btn {
+            bottom: max(20px, env(safe-area-inset-bottom));
+        }
+    }
+}

@@ -1,0 +1,13 @@
+RewriteEngine On
+
+# 1. Force HTTPS (Να βγαίνει πάντα το λουκετάκι)
+RewriteCond %{HTTPS} off
+RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+
+# 2. Αφαίρεση του .html (Να φαίνεται dynaworks.gr/services αντί για services.html)
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME}.html -f
+RewriteRule ^(.*)$ $1.html [L]
+
+# 3. Custom 404 Page
+ErrorDocument 404 /404.html

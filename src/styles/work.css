@@ -1,0 +1,269 @@
+/* ==========================================
+   WORK LIBRARY - DESKTOP STYLES
+   Color Flow: Beige → Dark → Beige → Dark Footer
+   ========================================== */
+
+/* --- 1. HERO SECTION (BEIGE) --- */
+.work-hero {
+    padding: 180px 0 100px;
+    border-bottom: 1px solid rgba(0,0,0,0.1);
+    background: var(--beige);
+}
+
+.hero-label {
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--primary);
+    margin-bottom: 1rem;
+    font-weight: 600;
+}
+
+.hero-title {
+    font-size: clamp(3.5rem, 10vw, 8rem);
+    line-height: 1;
+    margin-bottom: 2rem;
+    color: var(--darker);
+}
+
+.hero-desc {
+    max-width: 600px;
+    font-size: 1.3rem;
+    line-height: 1.6;
+    color: var(--dark);
+    margin-left: auto;
+}
+
+/* --- 2. MARQUEE (DARK) --- */
+.marquee-wrapper {
+    background: var(--darker);
+    color: var(--beige);
+    padding: 18px 0;
+    overflow: hidden;
+    white-space: nowrap;
+    border-bottom: none;
+}
+
+.marquee-track {
+    display: inline-block;
+    animation: marquee 40s linear infinite;
+}
+
+.marquee-track span {
+    font-family: 'Space Grotesk', sans-serif;
+    font-weight: 700;
+    font-size: 1rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    margin-right: 40px;
+    color: var(--beige);
+}
+
+@keyframes marquee {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
+}
+
+/* --- 3. CATALOG LIST (BEIGE with zebra) --- */
+.work-list-section {
+    background: var(--beige);
+}
+
+.work-item {
+    display: grid;
+    grid-template-columns: 1fr 3fr 1fr;
+    gap: 2rem;
+    padding: 100px var(--container-padding);
+    border-bottom: 1px solid rgba(0,0,0,0.08);
+    transition: all 0.4s ease;
+}
+
+/* Zebra: Odd items (01, 03) - Light Beige */
+.work-item:nth-child(odd) {
+    background-color: var(--beige);
+}
+
+/* Zebra: Even items (02, 04) - Darker Beige */
+.work-item:nth-child(even) {
+    background-color: var(--beige-dark);
+    border-bottom: 1px solid rgba(0,0,0,0.05);
+}
+
+/* Hover Effect */
+.work-item:hover {
+    background-color: #DCD6C9 !important;
+    transform: translateY(-5px);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+    z-index: 2;
+    position: relative;
+}
+
+/* --- ITEM DETAILS --- */
+
+/* Column 1: ID & Tech */
+.work-meta {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.work-id {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 4rem;
+    color: rgba(0,0,0,0.1);
+    font-weight: 700;
+    line-height: 1;
+}
+
+.tech-stack {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.tech-stack span {
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    border: 1px solid var(--darker);
+    padding: 6px 14px;
+    border-radius: 30px;
+    width: fit-content;
+    background: rgba(255,255,255,0.2);
+    font-weight: 600;
+}
+
+/* Column 2: Main Content */
+.work-details h2 {
+    font-size: 2.8rem;
+    margin-bottom: 1.5rem;
+    color: var(--darker);
+    letter-spacing: -0.03em;
+}
+
+.work-details p {
+    font-size: 1.2rem;
+    opacity: 0.9;
+    margin-bottom: 2.5rem;
+    max-width: 650px;
+    line-height: 1.6;
+}
+
+.features-list {
+    list-style: none;
+    padding: 0;
+}
+
+.features-list li {
+    font-size: 1.05rem;
+    margin-bottom: 0.8rem;
+    color: var(--darker);
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+/* Column 3: Status Badge */
+.work-action {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+}
+
+.status-badge {
+    padding: 12px 24px;
+    border-radius: 8px;
+    font-size: 0.85rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    background: var(--darker);
+    color: var(--primary);
+    border: 1px solid var(--darker);
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+/* --- 4. CTA SPLIT SECTION (BEIGE) --- */
+.cta-split-hero {
+    padding: 140px 0;
+    background: var(--beige);
+    color: var(--darker);
+    border-top: none;
+}
+
+.cta-question {
+    font-size: clamp(2.5rem, 6vw, 5rem);
+    margin-bottom: 80px;
+    text-align: center;
+    line-height: 1.1;
+    color: var(--darker);
+}
+
+.decision-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+}
+
+.decision-card {
+    padding: 80px 50px;
+    border-radius: 24px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    min-height: 450px;
+    transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    position: relative;
+    overflow: hidden;
+}
+
+.decision-card:hover {
+    transform: translateY(-15px);
+}
+
+/* Light Card - White on Beige background */
+.decision-card.light {
+    background: var(--light);
+    color: var(--darker);
+    border: 1px solid rgba(0,0,0,0.08);
+    box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+}
+
+/* Dark Card */
+.decision-card.dark {
+    background: var(--darker);
+    border: 1px solid rgba(255,255,255,0.1);
+    color: var(--light);
+}
+
+.decision-card h3 {
+    font-size: 2.2rem;
+    margin-bottom: 1.5rem;
+    font-weight: 600;
+}
+
+.decision-card p {
+    font-size: 1.3rem;
+    opacity: 0.8;
+    margin-bottom: 2rem;
+    max-width: 400px;
+}
+
+.arrow-btn {
+    font-size: 1.3rem;
+    font-weight: 600;
+    margin-top: auto;
+    display: inline-flex;
+    align-items: center;
+    gap: 15px;
+    transition: gap 0.3s ease;
+    color: var(--darker);
+}
+
+.arrow-btn:hover {
+    gap: 25px;
+}
+
+.arrow-btn.white {
+    color: var(--primary);
+}

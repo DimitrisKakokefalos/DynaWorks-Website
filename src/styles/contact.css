@@ -1,0 +1,657 @@
+/* ==========================================
+   CONTACT PAGE - FIASCO INSPIRED
+   ========================================== */
+
+/* ==========================================
+   1. LARGE HERO SECTION
+   ========================================== */
+.contact-hero-large {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 140px 2rem 80px;
+    background: var(--beige);
+    position: relative;
+    overflow: hidden;
+    border-bottom: var(--border-style);
+}
+
+.contact-hero-large::before {
+    content: '';
+    position: absolute;
+    top: 20%;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 800px;
+    height: 800px;
+    background: radial-gradient(circle, rgba(255, 107, 53, 0.15) 0%, transparent 70%);
+    border-radius: 50%;
+    pointer-events: none;
+}
+
+.hero-tag {
+    font-size: 1rem;
+    font-style: italic;
+    color: var(--light);
+    opacity: 0.6;
+    margin-bottom: 3rem;
+    text-align: center;
+    position: relative;
+    z-index: 2;
+}
+
+.hero-title {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: clamp(3rem, 8vw, 7rem);
+    font-weight: 400;
+    line-height: 1.1;
+    color: var(--dark);
+    text-align: center;
+    max-width: 1400px;
+    margin: 0 auto;
+    letter-spacing: -0.02em;
+    position: relative;
+    z-index: 2;
+}
+
+.hero-title .highlight {
+    color: var(--primary);
+    font-weight: 500;
+}
+
+/* ==========================================
+   2. CONTACT MAIN SECTION (2-Column Layout)
+   ========================================== */
+.contact-main-section {
+    min-height: 100vh;
+    background: var(--darker);
+    padding: 0;
+    border-bottom: var(--border-style);
+}
+
+.contact-split-layout {
+    display: grid;
+    grid-template-columns: 1fr 1.3fr;
+    min-height: 100vh;
+    gap: 30px;
+    padding: 100px max(60px, 6vw);
+    justify-content: center;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+/* ========================================
+   LEFT SIDE: Contact Methods
+   ======================================== */
+.contact-left {
+    display: flex;
+    align-items: center;
+}
+
+/* Contact Box - matching form wrapper style */
+.contact-box {
+    width: 100%;
+    max-width: 550px;
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 24px;
+    padding: 45px 40px;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+    backdrop-filter: blur(10px);
+}
+
+.contact-grid {
+    display: grid;
+    gap: 2.5rem;
+    width: 100%;
+}
+
+.contact-item h3 {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 0.95rem;
+    font-weight: 400;
+    font-style: italic;
+    color: var(--light);
+    opacity: 0.5;
+    margin-bottom: 1.2rem;
+    letter-spacing: 0.02em;
+}
+
+/* Person Contact Style */
+.contact-person {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.person-avatar {
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    overflow: hidden;
+    flex-shrink: 0;
+}
+
+.person-avatar img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.person-info {
+    flex: 1;
+}
+
+.person-name {
+    font-size: 1.15rem;
+    font-weight: 500;
+    color: var(--light);
+    margin-bottom: 0.3rem;
+}
+
+.person-email {
+    font-size: 1.05rem;
+    color: var(--light);
+    text-decoration: none;
+    transition: all 0.3s ease;
+    display: inline-block;
+    opacity: 0.9;
+}
+
+.person-email:hover {
+    color: var(--primary);
+    opacity: 1;
+    transform: translateX(3px);
+}
+
+/* Location & Phone Styles */
+.location-link,
+.phone-link {
+    font-size: 1.05rem;
+    color: var(--light);
+    text-decoration: none;
+    line-height: 1.7;
+    transition: all 0.3s ease;
+    display: inline-block;
+    opacity: 0.9;
+}
+
+.location-link:hover,
+.phone-link:hover {
+    color: var(--primary);
+    opacity: 1;
+}
+
+.contact-meta {
+    font-size: 0.95rem;
+    color: var(--light);
+    opacity: 0.5;
+    margin-top: 0.5rem;
+    line-height: 1.6;
+}
+
+/* Social Links Styles */
+.social-links {
+    display: flex;
+    flex-direction: column;
+    gap: 0.8rem;
+}
+
+.social-link {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-size: 1rem;
+    color: var(--light);
+    text-decoration: none;
+    opacity: 0.9;
+    transition: all 0.3s ease;
+    padding: 8px 0;
+}
+
+.social-link:hover {
+    color: var(--primary);
+    opacity: 1;
+    transform: translateX(5px);
+}
+
+.social-link svg {
+    flex-shrink: 0;
+    opacity: 0.7;
+    transition: opacity 0.3s ease;
+}
+
+.social-link:hover svg {
+    opacity: 1;
+}
+
+/* ========================================
+   RIGHT SIDE: Contact Form with BOX
+   ======================================== */
+.contact-right {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.form-wrapper {
+    width: 100%;
+    max-width: 650px;
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 24px;
+    padding: 50px 45px;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+    backdrop-filter: blur(10px);
+}
+
+.form-title {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: clamp(1.8rem, 3.5vw, 2.5rem);
+    font-weight: 400;
+    color: var(--light);
+    margin-bottom: 2.5rem;
+    line-height: 1.3;
+}
+
+/* New Form Styles */
+.contact-form-new {
+    display: flex;
+    flex-direction: column;
+    gap: 1.3rem;
+}
+
+.form-row-2col {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.3rem;
+}
+
+.form-field {
+    position: relative;
+}
+
+.form-field input,
+.form-field select,
+.form-field textarea {
+    width: 100%;
+    padding: 14px 18px;
+    font-family: 'Inter', sans-serif;
+    font-size: 0.95rem;
+    color: var(--light);
+    background: rgba(255, 255, 255, 0.06);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    border-radius: 10px;
+    transition: all 0.3s ease;
+    box-sizing: border-box;
+}
+
+.form-field input:focus,
+.form-field select:focus,
+.form-field textarea:focus {
+    outline: none;
+    border-color: var(--primary);
+    background: rgba(255, 255, 255, 0.09);
+    box-shadow: 0 0 0 3px rgba(255, 107, 53, 0.1);
+}
+
+.form-field input::placeholder,
+.form-field textarea::placeholder {
+    color: rgba(255, 255, 255, 0.35);
+}
+
+/* ==========================================
+   SELECT / DROPDOWN - DARK THEME FIX
+   ========================================== */
+.form-field select {
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    background-color: rgba(255, 255, 255, 0.06);
+    background-image: url("data:image/svg+xml,%3Csvg width='12' height='8' viewBox='0 0 12 8' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M1 1.5L6 6.5L11 1.5' stroke='rgba(255,255,255,0.5)' stroke-width='2' stroke-linecap='round'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 18px center;
+    padding-right: 45px;
+    cursor: pointer;
+    color: rgba(255, 255, 255, 0.35);
+}
+
+.form-field select:focus,
+.form-field select:valid:not([value=""]) {
+    color: var(--light);
+}
+
+/* Dropdown options - Dark background */
+.form-field select option {
+    background-color: #1a1a1a;
+    color: #ffffff;
+    padding: 12px 16px;
+}
+
+.form-field select option:hover,
+.form-field select option:checked {
+    background-color: #ff6b35;
+    color: #1a1a1a;
+}
+
+/* Placeholder option */
+.form-field select option[value=""] {
+    color: rgba(255, 255, 255, 0.5);
+}
+
+.form-field textarea {
+    resize: vertical;
+    min-height: 110px;
+    line-height: 1.6;
+}
+
+/* Checkbox Styling */
+.form-checkbox {
+    margin-top: 0.3rem;
+}
+
+.checkbox-wrapper {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    cursor: pointer;
+}
+
+.checkbox-wrapper input[type="checkbox"] {
+    width: 18px;
+    height: 18px;
+    min-width: 18px;
+    margin-top: 2px;
+    cursor: pointer;
+    accent-color: var(--primary);
+    border-radius: 4px;
+}
+
+.checkbox-text {
+    font-size: 0.85rem;
+    line-height: 1.5;
+    color: var(--light);
+    opacity: 0.6;
+}
+
+/* Orange Submit Button */
+.submit-btn-yellow {
+    width: 100%;
+    padding: 16px 32px;
+    margin-top: 1.2rem;
+    background: #ff6b35;
+    color: var(--darker);
+    border: none;
+    border-radius: 50px;
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    transition: all 0.3s ease;
+}
+
+.submit-btn-yellow:hover {
+    background: #ff8c42;
+    transform: translateY(-3px);
+    box-shadow: 0 10px 30px rgba(255, 107, 53, 0.4);
+}
+
+.submit-btn-yellow:disabled {
+    opacity: 0.7;
+    cursor: not-allowed;
+    transform: none;
+}
+
+.btn-arrow {
+    font-size: 1.2rem;
+    transition: transform 0.3s ease;
+}
+
+.submit-btn-yellow:hover .btn-arrow {
+    transform: translateX(5px);
+}
+
+/* Success Message */
+.form-success-new {
+    text-align: center;
+    padding: 3rem 2rem;
+    animation: fadeIn 0.5s ease;
+}
+
+.success-icon-large {
+    width: 70px;
+    height: 70px;
+    margin: 0 auto 1.5rem;
+    background: var(--primary);
+    color: var(--light);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2.5rem;
+}
+
+.form-success-new h3 {
+    font-size: 1.8rem;
+    color: var(--light);
+    margin-bottom: 1rem;
+}
+
+.form-success-new p {
+    font-size: 1rem;
+    color: var(--light);
+    opacity: 0.75;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* ==========================================
+   3. FAQ ACCORDION SECTION
+   ========================================== */
+.faq-accordion-section {
+    padding: 120px 0;
+    background: var(--light);
+    border-bottom: var(--border-style);
+}
+
+.section-title-left {
+    font-size: clamp(2.5rem, 5vw, 4rem);
+    margin-bottom: 4rem;
+    text-align: left;
+    color: var(--darker);
+}
+
+.faq-accordion {
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.faq-accordion-item {
+    border-bottom: var(--border-style);
+    transition: all 0.3s ease;
+}
+
+.faq-question {
+    width: 100%;
+    padding: 2rem 0;
+    background: none;
+    border: none;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 2rem;
+    cursor: pointer;
+    text-align: left;
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 1.4rem;
+    font-weight: 500;
+    color: var(--darker);
+    transition: all 0.3s ease;
+}
+
+.faq-question:hover {
+    color: var(--primary);
+}
+
+.faq-icon {
+    flex-shrink: 0;
+    transition: transform 0.3s ease;
+}
+
+.faq-accordion-item.active .faq-icon {
+    transform: rotate(180deg);
+}
+
+.faq-answer {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.4s ease, padding 0.4s ease;
+}
+
+.faq-accordion-item.active .faq-answer {
+    max-height: 500px;
+    padding-bottom: 2rem;
+}
+
+.faq-answer p {
+    font-size: 1.05rem;
+    line-height: 1.8;
+    color: var(--dark);
+    opacity: 0.85;
+}
+
+/* ==========================================
+   4. SCROLL REVEAL ANIMATIONS
+   ========================================== */
+[data-scroll-section] {
+    opacity: 0;
+    transform: translateY(50px);
+    transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+[data-scroll-section].visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* ==========================================
+   5. RESPONSIVE
+   ========================================== */
+@media (max-width: 1024px) {
+    .contact-split-layout {
+        grid-template-columns: 1fr;
+        gap: 40px;
+        padding: 80px 40px;
+    }
+
+    .contact-left {
+        justify-content: center;
+    }
+
+    .contact-box {
+        max-width: 600px;
+        margin: 0 auto;
+    }
+
+    .contact-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 2rem 2rem;
+    }
+
+    .form-wrapper {
+        padding: 40px 35px;
+    }
+}
+
+@media (max-width: 768px) {
+    .hero-title {
+        font-size: clamp(2rem, 5vw, 3.5rem);
+    }
+
+    .contact-split-layout {
+        gap: 50px;
+        padding: 60px 24px;
+    }
+
+    .contact-box {
+        padding: 35px 28px;
+    }
+
+    .contact-grid {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+
+    .form-row-2col {
+        grid-template-columns: 1fr;
+        gap: 1.3rem;
+    }
+
+    .form-wrapper {
+        padding: 35px 28px;
+    }
+
+    .form-title {
+        font-size: 1.8rem;
+        margin-bottom: 2rem;
+    }
+
+    .faq-question {
+        font-size: 1.2rem;
+        padding: 1.5rem 0;
+    }
+}
+
+@media (max-width: 480px) {
+    .hero-title br {
+        display: none;
+    }
+
+    .contact-hero-large {
+        min-height: 80vh;
+        padding: 120px 1.5rem 60px;
+    }
+
+    .contact-split-layout {
+        padding: 50px 20px;
+    }
+
+    .form-wrapper {
+        padding: 30px 24px;
+        border-radius: 20px;
+    }
+
+    .submit-btn-yellow {
+        padding: 14px 28px;
+        font-size: 0.95rem;
+    }
+
+    .contact-item h3 {
+        font-size: 0.9rem;
+    }
+
+    .person-name {
+        font-size: 1.05rem;
+    }
+
+    .person-email,
+    .location-link,
+    .phone-link {
+        font-size: 0.95rem;
+    }
+}

@@ -1,0 +1,15 @@
+# Homepage
+/   /pages/index.html   200
+
+# Clean URLs
+/index      /pages/index.html      200
+/services   /pages/services.html   200
+/contact    /pages/contact.html    200
+/work       /pages/work.html       200
+/booking    /pages/booking.html    200
+
+# API
+/api/chat   /.netlify/functions/chat   200
+
+# 404 fallback (must be last)
+/*   /pages/404.html   404
