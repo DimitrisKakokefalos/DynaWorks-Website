@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="el">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Page Not Found | DynaWorks</title>
+    
+    <link rel="icon" type="image/svg+xml" href="assets/dw-logo.svg">
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;700&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="agent.css">
+    <link rel="stylesheet" href="css/back-to-top.css">
+    
+    <style>
+        /* Εσωτερικό CSS μόνο για αυτή τη σελίδα για να μην φορτώνουμε το style.css */
+        body {
+            background-color: var(--darker); /* Σκούρο φόντο για το Error */
+            color: var(--beige);
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            overflow: hidden;
+        }
+
+        .error-container {
+            padding: 20px;
+            position: relative;
+            z-index: 2;
+        }
+
+        h1 {
+            font-size: clamp(8rem, 20vw, 15rem);
+            color: var(--primary);
+            line-height: 1;
+            margin-bottom: 0;
+            opacity: 0.9;
+            text-shadow: 0 0 30px rgba(255, 107, 53, 0.3);
+        }
+
+        h2 {
+            font-size: clamp(1.5rem, 4vw, 2.5rem);
+            margin-bottom: 1.5rem;
+            font-weight: 400;
+        }
+
+        p {
+            font-size: 1.1rem;
+            opacity: 0.7;
+            max-width: 500px;
+            margin: 0 auto 3rem;
+            font-family: 'Inter', sans-serif;
+        }
+
+        /* Glitch effect decorative */
+        .glitch-text {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 20rem;
+            font-weight: bold;
+            color: rgba(255, 255, 255, 0.03);
+            z-index: -1;
+            pointer-events: none;
+            white-space: nowrap;
+        }
+
+        .back-btn {
+            display: inline-block;
+            padding: 16px 40px;
+            background: var(--beige);
+            color: var(--darker);
+            border-radius: 50px;
+            font-family: 'Space Grotesk', sans-serif;
+            font-weight: 700;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .back-btn:hover {
+            background: var(--primary);
+            color: #fff;
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(255, 107, 53, 0.4);
+        }
+    </style>
+</head>
+<body>
+
+    <div class="glitch-text">404</div>
+
+    <div class="error-container">
+        <h1>404</h1>
+        <h2>System Malfunction.</h2>
+        <p>Φαίνεται πως οι AI agents μας δεν μπόρεσαν να βρουν τη σελίδα που ψάχνεις. Ίσως έχει μετακινηθεί ή διαγραφεί.</p>
+        
+        <a href="index.html" class="back-btn">← Επιστροφή στη Βάση</a>
+    </div>
+
+    <script src="js/chat-widget.js"></script>
+    <script src="js/back-to-top.js"></script>
+
+</body>
+</html>

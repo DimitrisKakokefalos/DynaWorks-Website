@@ -1,0 +1,1466 @@
+/* ==========================================
+   DYNAWORKS - MOBILE OPTIMIZATIONS
+   Clean, unified responsive styles
+   ========================================== */
+
+/* ==========================================
+   1. GLOBAL MOBILE FIXES & UTILITIES
+   ========================================== */
+html, body {
+    overflow-x: hidden;
+    width: 100%;
+}
+
+/* ΣΗΜΑΝΤΙΚΟ: Κρύβουμε την ώρα του mobile menu από το Desktop */
+.mobile-time-display {
+    display: none; 
+}
+
+/* ==========================================
+   2. MOBILE MENU - FIASCO STYLE (UPDATED)
+   ========================================== */
+@media (max-width: 768px) {
+    /* Header Adjustments */
+    .site-header {
+        height: 70px;
+        padding: 0 20px;
+    }
+    
+    .logo-text {
+        font-size: 1.4rem;
+        z-index: 1002;
+        position: relative;
+    }
+    
+    /* Hide desktop time */
+    .header-center {
+        display: none;
+    }
+    
+    /* Burger Button */
+    .mobile-menu-toggle {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        width: 44px;
+        height: 44px;
+        padding: 0;
+        gap: 6px;
+        z-index: 1002;
+        background: transparent;
+        border: none;
+        cursor: pointer;
+        position: relative;
+    }
+    
+    .mobile-menu-toggle span {
+        display: block;
+        width: 24px;
+        height: 2px;
+        background: var(--darker);
+        transition: all 0.3s ease;
+        transform-origin: center;
+    }
+    
+    .mobile-menu-toggle.active span {
+        background: var(--darker);
+    }
+    
+    .mobile-menu-toggle.active span:nth-child(1) {
+        transform: translateY(8px) rotate(45deg);
+    }
+    
+    .mobile-menu-toggle.active span:nth-child(2) {
+        opacity: 0;
+        transform: scaleX(0);
+    }
+    
+    .mobile-menu-toggle.active span:nth-child(3) {
+        transform: translateY(-8px) rotate(-45deg);
+    }
+    
+    /* Fiasco Style Fullscreen Overlay */
+    .header-right {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        width: 100vw;
+        height: 100vh;
+        height: 100dvh;
+        
+        /* ΤΟ ΒΑΣΙΚΟ ΧΡΩΜΑ ΤΟΥ BRAND (Πορτοκαλί) */
+        background: var(--primary); 
+        
+        display: none;
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: flex-start;
+        
+        padding: 120px 30px 40px;
+        z-index: 1001;
+        opacity: 0;
+    }
+    
+    .header-right.active {
+        display: flex;
+        opacity: 1;
+        animation: menuFadeIn 0.3s ease forwards;
+    }
+    
+    @keyframes menuFadeIn {
+        from { opacity: 0; transform: translateY(-10px); }
+        to { opacity: 1; transform: translateY(0); }
+    }
+    
+    /* Links */
+    .header-right .nav-link {
+        font-family: 'Space Grotesk', sans-serif;
+        font-size: clamp(3rem, 10vw, 4.5rem);
+        font-weight: 700;
+        color: var(--darker);
+        text-align: left;
+        line-height: 1.1;
+        padding: 0;
+        margin-bottom: 15px;
+        display: block;
+        width: 100%;
+        text-decoration: none;
+        background: none;
+    }
+    
+    .header-right .nav-link::after {
+        display: none;
+    }
+    
+    /* Contact Button as Text */
+    .header-right .cta-pill {
+        background: transparent;
+        color: var(--darker);
+        font-family: 'Space Grotesk', sans-serif;
+        font-size: clamp(3rem, 10vw, 4.5rem);
+        font-weight: 700;
+        padding: 0;
+        margin-top: 0;
+        border: none;
+        text-align: left;
+        line-height: 1.1;
+    }
+
+    /* Mobile Time Display - Εμφάνιση ΜΟΝΟ εδώ */
+    .mobile-time-display {
+        display: block; /* Το επαναφέρουμε σε εμφάνιση */
+        margin-top: auto;
+        font-family: 'Space Grotesk', sans-serif;
+        font-size: 1.5rem !important;
+        font-weight: 500;
+        color: var(--darker) !important;
+        opacity: 0.8;
+    }
+}
+/* ==========================================
+   3. FOOTER - DYNAMIC HEIGHT FIX & MOBILE RESET
+   ========================================== */
+@media (max-width: 768px) {
+    /* Απενεργοποίηση του Reveal Effect στα κινητά */
+    .site-footer {
+        position: relative !important; /* Το κάνουμε κανονικό στοιχείο */
+        bottom: auto !important;
+        left: auto !important;
+        right: auto !important;
+        width: 100%;
+        z-index: 20; /* Το φέρνουμε πάνω από το main-content */
+        padding: 50px 20px 40px;
+        background: var(--darker); /* Σιγουρεύουμε ότι έχει χρώμα */
+    }
+
+    /* Σημαντικό: Μηδενίζουμε το margin που βάζει η JavaScript */
+    .main-content {
+        margin-bottom: 0 !important;
+        border-radius: 0 !important; /* Προαιρετικά αφαιρούμε τις γωνίες αν θες να κολλάει */
+    }
+    
+    /* Layout Adjustments */
+    .footer-top {
+        grid-template-columns: 1fr;
+        gap: 2.5rem;
+        margin-bottom: 30px;
+        padding-bottom: 30px;
+        border-bottom: 1px solid rgba(255,255,255,0.1); /* Λίγο πιο εμφανές border */
+    }
+    
+    .footer-logo-text {
+        font-size: 1.8rem; /* Μεγαλώνουμε λίγο το Logo */
+        margin-bottom: 1rem;
+        display: inline-block;
+    }
+    
+    .footer-brand p {
+        font-size: 1rem;
+        max-width: 100%;
+        color: rgba(245, 241, 232, 0.7);
+    }
+    
+    .footer-nav {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 2rem 1.5rem; /* Περισσότερο κάθετο gap */
+    }
+    
+    .footer-col h4 {
+        font-size: 0.9rem;
+        margin-bottom: 1rem;
+        color: var(--primary); /* Κάνουμε τους τίτλους πιο έντονους */
+    }
+    
+    .footer-col a {
+        font-size: 0.95rem; /* Μεγαλύτερα links για touch */
+        margin-bottom: 0.8rem;
+        padding: 5px 0; /* Ευκολότερο πάτημα */
+    }
+    
+    .footer-bottom {
+        flex-direction: column;
+        gap: 1.5rem;
+        text-align: center;
+        padding-top: 20px;
+    }
+    
+    .footer-info,
+    .footer-legal {
+        flex-direction: column;
+        gap: 0.8rem;
+    }
+    
+    .footer-bottom p {
+        font-size: 0.85rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .site-footer {
+        padding: 40px 16px 30px;
+    }
+    
+    .footer-nav {
+        grid-template-columns: 1fr; /* Μία στήλη σε πολύ μικρά κινητά */
+        gap: 2rem;
+    }
+}
+
+/* ==========================================
+   4. HERO SECTION MOBILE
+   ========================================== */
+@media (max-width: 768px) {
+    .hero-section {
+        min-height: calc(100vh - 70px);
+        min-height: calc(100dvh - 70px);
+        padding: 90px 20px 60px;
+    }
+    
+    .hero-text {
+        margin-bottom: 40px;
+    }
+    
+    h1, .hero-text h1 {
+        font-size: clamp(2.2rem, 8vw, 3.5rem);
+        line-height: 1.15;
+    }
+    
+    h1 br {
+        display: none;
+    }
+    
+    .hero-sub {
+        flex-direction: column;
+        gap: 2rem;
+        align-items: flex-start;
+    }
+    
+    .hero-info {
+        max-width: 100%;
+    }
+    
+    .hero-info p {
+        font-size: 1rem;
+        line-height: 1.7;
+    }
+    
+    .hero-tagline {
+        font-size: 0.9rem !important;
+    }
+    
+    .scroll-indicator {
+        display: none;
+    }
+}
+
+@media (max-width: 480px) {
+    .hero-section {
+        padding: 80px 16px 40px;
+    }
+    
+    h1, .hero-text h1 {
+        font-size: 2rem;
+    }
+}
+
+/* ==========================================
+   5. STATS BAR MOBILE
+   ========================================== */
+@media (max-width: 768px) {
+    .stats-bar {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    
+    .stat-item {
+        padding: 1.5rem 1rem;
+        border-bottom: var(--border-style);
+    }
+    
+    .stat-item:nth-child(2n) {
+        border-right: none;
+    }
+    
+    .stat-item:nth-child(3),
+    .stat-item:nth-child(4) {
+        border-bottom: none;
+    }
+    
+    .stat-number {
+        font-size: 2rem;
+    }
+    
+    .stat-label {
+        font-size: 0.75rem;
+    }
+}
+
+/* ==========================================
+   6. WORKS GRID MOBILE
+   ========================================== */
+@media (max-width: 768px) {
+    .section-header {
+        padding: 50px 20px;
+        flex-direction: column;
+        gap: 1.5rem;
+    }
+    
+    .section-header h2 {
+        font-size: clamp(1.8rem, 6vw, 2.5rem);
+    }
+    
+    .section-header h2 br {
+        display: none;
+    }
+    
+    .section-subtitle {
+        text-align: left;
+        font-size: 1rem;
+        max-width: 100%;
+    }
+    
+    .grid-layout {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        padding: 0;
+    }
+    
+    .grid-item {
+        width: calc(100% - 32px);
+        margin: 8px 16px;
+        padding: 1.5rem;
+        min-height: 280px;
+        border-radius: 16px;
+        grid-column: span 1 !important;
+        grid-row: span 1 !important;
+    }
+    
+    .grid-item h3 {
+        font-size: 1.4rem;
+        margin-bottom: 0.8rem;
+    }
+    
+    .grid-item h3 br {
+        display: none;
+    }
+    
+    .grid-item p {
+        font-size: 0.95rem;
+        line-height: 1.6;
+    }
+    
+    .tag {
+        font-size: 0.7rem;
+        padding: 5px 12px;
+        margin-bottom: 1.5rem;
+    }
+    
+    .card-number {
+        font-size: 2.5rem;
+        bottom: 1.5rem;
+        right: 1.5rem;
+    }
+    
+    .arrow-link {
+        font-size: 0.9rem;
+    }
+}
+
+/* ==========================================
+   7. CLIENTS CAROUSEL MOBILE
+   ========================================== */
+@media (max-width: 768px) {
+    .clients-section {
+        padding: 60px 0;
+    }
+    
+    .clients-header {
+        margin-bottom: 40px;
+    }
+    
+    .clients-subtitle {
+        font-size: 1.1rem;
+        padding: 0 20px;
+    }
+    
+    .carousel-track {
+        gap: 40px;
+    }
+    
+    .client-logo {
+        min-width: 120px;
+        height: 50px;
+    }
+}
+
+/* ==========================================
+   8. LOCATION SECTION MOBILE
+   ========================================== */
+@media (max-width: 768px) {
+    .location-section {
+        padding: 60px 20px;
+    }
+    
+    .location-grid {
+        grid-template-columns: 1fr;
+        gap: 3rem;
+    }
+    
+    .location-tag {
+        font-size: 0.75rem;
+        padding: 6px 14px;
+        margin-bottom: 1.5rem;
+    }
+    
+    .location-info h2 {
+        font-size: clamp(1.6rem, 5vw, 2.5rem);
+        margin-bottom: 1.5rem;
+    }
+    
+    .location-info h2 br {
+        display: none;
+    }
+    
+    .location-info p {
+        font-size: 1rem;
+        margin-bottom: 2rem;
+    }
+    
+    .location-stats {
+        gap: 2.5rem;
+    }
+    
+    .location-stat strong {
+        font-size: 1.5rem;
+    }
+    
+    .location-stat span {
+        font-size: 0.8rem;
+    }
+    
+    .location-visual {
+        height: 200px;
+        order: -1;
+    }
+    
+    .location-marker {
+        font-size: 3rem;
+    }
+    
+    .pulse {
+        width: 80px;
+        height: 80px;
+    }
+}
+
+/* ==========================================
+   9. CTA SECTION MOBILE
+   ========================================== */
+@media (max-width: 768px) {
+    .cta-section {
+        padding: 60px 20px;
+    }
+    
+    .cta-section h2 {
+        font-size: clamp(1.6rem, 5vw, 2.5rem);
+        margin-bottom: 1rem;
+    }
+    
+    .cta-section p {
+        font-size: 1rem;
+        margin-bottom: 2rem;
+    }
+    
+    .big-btn {
+        font-size: 1rem;
+        padding: 16px 32px;
+        width: 100%;
+        max-width: 300px;
+        text-align: center;
+    }
+}
+
+/* ==========================================
+   10. CHAT WIDGET MOBILE
+   Floating button + AI Chat window
+   ========================================== */
+@media (max-width: 768px) {
+   
+
+    /* AI Chat Widget - Mobile */
+    .ai-chat-widget {
+        bottom: 16px;
+        right: 16px;
+    }
+
+    .chat-window {
+        width: calc(100vw - 32px);
+        height: 70vh;
+        max-height: 500px;
+        right: 0;
+        bottom: 76px;
+    }
+
+    .chat-toggle-btn {
+        width: 56px;
+        height: 56px;
+    }
+
+    .chat-header {
+        padding: 16px;
+    }
+
+    .agent-avatar {
+        width: 40px;
+        height: 40px;
+    }
+
+    .agent-text h4 {
+        font-size: 0.95rem;
+    }
+
+    .agent-text span {
+        font-size: 0.75rem;
+    }
+
+    .chat-messages {
+        padding: 16px;
+    }
+
+    .message-content {
+        padding: 12px 16px;
+        font-size: 0.9rem;
+    }
+
+    #chatInput {
+        padding: 12px 16px;
+        font-size: 0.9rem;
+    }
+
+    .send-btn {
+        width: 44px;
+        height: 44px;
+    }
+}
+
+@media (max-width: 480px) {
+    .chat-window {
+        width: calc(100vw - 24px);
+        height: 65vh;
+        bottom: 72px;
+    }
+
+    .ai-chat-widget {
+        bottom: 12px;
+        right: 12px;
+    }
+}
+
+/* Chat Widget - Safe Area (Notched Phones) */
+@supports (padding: max(0px)) {
+    @media (max-width: 768px) {
+        .ai-chat-widget {
+            bottom: max(16px, env(safe-area-inset-bottom));
+            right: max(16px, env(safe-area-inset-right));
+        }
+
+        .floating-chat-btn {
+            bottom: max(16px, env(safe-area-inset-bottom));
+        }
+    }
+}
+
+/* ==========================================
+   11. SERVICES PAGE MOBILE
+   ========================================== */
+@media (max-width: 768px) {
+    .services-hero-section {
+        padding: 100px 20px 60px;
+        min-height: auto;
+        text-align: center;
+    }
+    
+    .services-hero-section h1 {
+        font-size: clamp(2rem, 7vw, 3.5rem);
+    }
+    
+    .services-hero-section h1 br {
+        display: none;
+    }
+    
+    .hero-description {
+        font-size: 1rem;
+        margin-bottom: 2rem;
+    }
+    
+    .nav-pills-bar {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 10px;
+    }
+    
+    .nav-pill {
+        font-size: 0.85rem;
+        padding: 10px 20px;
+    }
+    
+    /* Service Sections */
+    .service-section {
+        padding: 60px 0;
+    }
+    
+    .service-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.5rem;
+        padding-bottom: 2rem;
+        margin-bottom: 2.5rem;
+    }
+    
+    .service-number {
+        font-size: 2rem;
+    }
+    
+    .service-section h2 {
+        font-size: clamp(1.6rem, 5vw, 2.5rem);
+    }
+    
+    .service-content-grid {
+        grid-template-columns: 1fr;
+        gap: 2.5rem;
+    }
+    
+    .service-visual {
+        order: -1;
+    }
+    
+    .reverse-order .service-info,
+    .reverse-order .service-visual {
+        order: unset;
+    }
+    
+    .reverse-order .service-visual {
+        order: -1;
+    }
+    
+    .service-subtitle {
+        font-size: 1.2rem;
+        margin-bottom: 1.5rem;
+    }
+    
+    .service-description-long {
+        font-size: 0.95rem;
+        margin-bottom: 2rem;
+    }
+    
+    .service-list li {
+        font-size: 0.95rem;
+        margin-bottom: 0.8rem;
+    }
+    
+    .visual-placeholder img {
+        max-height: 300px;
+        object-fit: contain;
+    }
+    
+    .request-btn {
+        width: 100%;
+        text-align: center;
+    }
+}
+
+/* ==========================================
+   12. CONTACT PAGE MOBILE
+   ========================================== */
+@media (max-width: 768px) {
+    .contact-hero-large {
+        min-height: 70vh;
+        padding: 100px 20px 60px;
+    }
+    
+    .hero-title {
+        font-size: clamp(1.8rem, 6vw, 3rem);
+    }
+    
+    .hero-title br {
+        display: none;
+    }
+    
+    .contact-split-layout {
+        grid-template-columns: 1fr;
+        gap: 40px;
+        padding: 50px 20px;
+        min-height: auto;
+    }
+    
+    .contact-left {
+        justify-content: center;
+    }
+    
+    .contact-box {
+        padding: 30px 24px;
+        border-radius: 20px;
+        max-width: 100%;
+    }
+    
+    .contact-grid {
+        gap: 2rem;
+    }
+    
+    .contact-item h3 {
+        font-size: 0.85rem;
+        margin-bottom: 1rem;
+    }
+    
+    .contact-person {
+        gap: 12px;
+    }
+    
+    .person-avatar {
+        width: 40px;
+        height: 40px;
+    }
+    
+    .person-name {
+        font-size: 1rem;
+    }
+    
+    .person-email,
+    .location-link,
+    .phone-link {
+        font-size: 0.9rem;
+    }
+    
+    .social-links {
+        gap: 0.6rem;
+    }
+    
+    .social-link {
+        font-size: 0.9rem;
+        padding: 6px 0;
+    }
+    
+    /* Contact Form */
+    .form-wrapper {
+        padding: 30px 24px;
+        border-radius: 20px;
+        max-width: 100%;
+    }
+    
+    .form-title {
+        font-size: 1.4rem;
+        margin-bottom: 2rem;
+    }
+    
+    .contact-form-new {
+        gap: 1rem;
+    }
+    
+    .form-row-2col {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+    }
+    
+    .form-field input,
+    .form-field select,
+    .form-field textarea {
+        padding: 12px 14px;
+        font-size: 16px; /* Prevents iOS zoom */
+        border-radius: 8px;
+    }
+    
+    .form-field textarea {
+        min-height: 100px;
+    }
+    
+    .checkbox-text {
+        font-size: 0.8rem;
+    }
+    
+    .submit-btn-yellow {
+        padding: 14px 24px;
+        font-size: 0.95rem;
+        margin-top: 1rem;
+    }
+    
+    /* FAQ Section */
+    .faq-accordion-section {
+        padding: 60px 20px;
+    }
+    
+    .section-title-left {
+        font-size: clamp(1.6rem, 5vw, 2.5rem);
+        margin-bottom: 2.5rem;
+    }
+    
+    .faq-question {
+        font-size: 1rem;
+        padding: 1.2rem 0;
+        gap: 1rem;
+    }
+    
+    .faq-icon svg {
+        width: 16px;
+        height: 16px;
+    }
+    
+    .faq-answer p {
+        font-size: 0.9rem;
+        line-height: 1.7;
+    }
+    
+    .faq-accordion-item.active .faq-answer {
+        padding-bottom: 1.5rem;
+    }
+}
+
+/* ==========================================
+   BOOKING PAGE MOBILE - FIXED HORIZONTAL SWIPE
+   Replace section 13 in your mobile.css with this
+   ========================================== */
+
+@media (max-width: 768px) {
+    /* --- HERO & INTRO --- */
+    .booking-hero {
+        min-height: auto;
+        padding: 100px 20px 60px;
+    }
+    
+    .booking-intro h1 {
+        font-size: clamp(2rem, 7vw, 3rem);
+        margin-bottom: 1.5rem;
+    }
+    
+    .booking-intro h1 br { display: none; }
+    
+    .booking-description {
+        font-size: 1rem;
+        margin-bottom: 2rem;
+    }
+    
+    .booking-features {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 0.8rem;
+    }
+    
+    .feature-badge {
+        width: 100%;
+        justify-content: flex-start;
+        padding: 10px 16px;
+        font-size: 0.9rem;
+    }
+    
+    .badge-icon {
+        width: 20px;
+        height: 20px;
+        font-size: 0.75rem;
+    }
+    
+    /* --- CALENDAR SECTION --- */
+    .calendar-section {
+        padding: 60px 20px;
+    }
+    
+    .calendar-header { margin-bottom: 40px; }
+    
+    .calendar-header h2 {
+        font-size: clamp(1.5rem, 5vw, 2rem);
+        margin-bottom: 0.8rem;
+    }
+    
+    .calendar-header p { font-size: 1rem; }
+    
+    .calendar-embed {
+        padding: 16px;
+        border-radius: 16px;
+    }
+    
+    .calendar-embed iframe {
+        height: 600px;
+        border-radius: 8px;
+    }
+    
+    /* ==========================================
+   BOOKING PAGE MOBILE - FIXED HORIZONTAL SWIPE v2
+   Replace section 13 in your mobile.css with this
+   ========================================== */
+
+@media (max-width: 768px) {
+    /* --- HERO & INTRO --- */
+    .booking-hero {
+        min-height: auto;
+        padding: 100px 20px 60px;
+    }
+    
+    .booking-intro h1 {
+        font-size: clamp(2rem, 7vw, 3rem);
+        margin-bottom: 1.5rem;
+    }
+    
+    .booking-intro h1 br { display: none; }
+    
+    .booking-description {
+        font-size: 1rem;
+        margin-bottom: 2rem;
+    }
+    
+    .booking-features {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 0.8rem;
+    }
+    
+    .feature-badge {
+        width: 100%;
+        justify-content: flex-start;
+        padding: 10px 16px;
+        font-size: 0.9rem;
+    }
+    
+    .badge-icon {
+        width: 20px;
+        height: 20px;
+        font-size: 0.75rem;
+    }
+    
+    /* --- CALENDAR SECTION --- */
+    .calendar-section {
+        padding: 60px 20px;
+    }
+    
+    .calendar-header { margin-bottom: 40px; }
+    
+    .calendar-header h2 {
+        font-size: clamp(1.5rem, 5vw, 2rem);
+        margin-bottom: 0.8rem;
+    }
+    
+    .calendar-header p { font-size: 1rem; }
+    
+    .calendar-embed {
+        padding: 16px;
+        border-radius: 16px;
+    }
+    
+    .calendar-embed iframe {
+        height: 600px;
+        border-radius: 8px;
+    }
+    
+    /* ==========================================
+   BOOKING PAGE MOBILE - FIXED HORIZONTAL SWIPE v3
+   Replace section 13 in your mobile.css with this
+   
+   Changes in v3:
+   - Hide intro statement slide (slide 0) on mobile
+   - Stronger specificity for step slides
+   ========================================== */
+
+@media (max-width: 768px) {
+    /* --- HERO & INTRO --- */
+    .booking-hero {
+        min-height: auto;
+        padding: 100px 20px 60px;
+    }
+    
+    .booking-intro h1 {
+        font-size: clamp(2rem, 7vw, 3rem);
+        margin-bottom: 1.5rem;
+    }
+    
+    .booking-intro h1 br { display: none; }
+    
+    .booking-description {
+        font-size: 1rem;
+        margin-bottom: 2rem;
+    }
+    
+    .booking-features {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 0.8rem;
+    }
+    
+    .feature-badge {
+        width: 100%;
+        justify-content: flex-start;
+        padding: 10px 16px;
+        font-size: 0.9rem;
+    }
+    
+    .badge-icon {
+        width: 20px;
+        height: 20px;
+        font-size: 0.75rem;
+    }
+    
+    /* --- CALENDAR SECTION --- */
+    .calendar-section {
+        padding: 60px 20px;
+    }
+    
+    .calendar-header { margin-bottom: 40px; }
+    
+    .calendar-header h2 {
+        font-size: clamp(1.5rem, 5vw, 2rem);
+        margin-bottom: 0.8rem;
+    }
+    
+    .calendar-header p { font-size: 1rem; }
+    
+    .calendar-embed {
+        padding: 16px;
+        border-radius: 16px;
+    }
+    
+    .calendar-embed iframe {
+        height: 600px;
+        border-radius: 8px;
+    }
+    
+    /* =========================================
+       HORIZONTAL SWIPE CAROUSEL - MOBILE FIX v3
+       ========================================= */
+    
+    /* Section container */
+    .process-section-horizontal {
+        height: auto !important;
+        min-height: auto !important;
+        padding: 60px 0;
+        overflow: visible !important;
+        background: var(--beige);
+    }
+    
+    /* Remove sticky behavior */
+    .process-sticky-container {
+        position: relative !important;
+        top: auto !important;
+        height: auto !important;
+        width: 100%;
+        display: block !important;
+        overflow: visible !important;
+    }
+    
+    /* Horizontal scroll wrapper */
+    .process-content-wrapper {
+        position: relative !important;
+        display: flex !important;
+        flex-direction: row !important;
+        flex-wrap: nowrap !important;
+        align-items: stretch !important;
+        justify-content: flex-start !important;
+        gap: 16px;
+        width: auto !important;
+        max-width: none !important;
+        height: auto !important;
+        padding: 20px;
+        margin: 0 !important;
+        
+        /* Enable horizontal scroll */
+        overflow-x: auto !important;
+        overflow-y: visible !important;
+        scroll-snap-type: x mandatory;
+        -webkit-overflow-scrolling: touch;
+        
+        /* Hide scrollbar */
+        scrollbar-width: none;
+        -ms-overflow-style: none;
+    }
+    
+    .process-content-wrapper::-webkit-scrollbar {
+        display: none;
+    }
+    
+    /* =========================================
+       HIDE INTRO STATEMENT ON MOBILE
+       Start directly with Discovery Call
+       ========================================= */
+    .process-slide.statement[data-slide="0"] {
+        display: none !important;
+    }
+    
+    /* =========================================
+       ALL SLIDES - COMPLETE MOBILE RESET
+       ========================================= */
+    
+    /* Target with high specificity */
+    .process-section-horizontal .process-content-wrapper .process-slide {
+        /* Reset positioning */
+        position: relative !important;
+        top: auto !important;
+        left: auto !important;
+        right: auto !important;
+        bottom: auto !important;
+        
+        /* Kill all transforms */
+        transform: none !important;
+        -webkit-transform: none !important;
+        -moz-transform: none !important;
+        -ms-transform: none !important;
+        
+        /* Sizing */
+        width: 75vw !important;
+        max-width: 280px !important;
+        min-width: 250px !important;
+        min-height: 320px;
+        flex: 0 0 auto !important;
+        
+        /* Snap */
+        scroll-snap-align: center;
+        scroll-snap-stop: always;
+        
+        /* VISIBLE */
+        opacity: 1 !important;
+        visibility: visible !important;
+        pointer-events: auto !important;
+        
+        /* Layout */
+        display: flex !important;
+        flex-direction: column !important;
+        justify-content: center !important;
+        align-items: center !important;
+        text-align: center;
+        padding: 28px 20px;
+        box-sizing: border-box;
+        
+        /* No transitions on mobile */
+        transition: none !important;
+    }
+    
+    /* Step slides specifically */
+    .process-section-horizontal .process-content-wrapper .process-slide.step {
+        background: var(--light) !important;
+        border: 1px solid rgba(0,0,0,0.08) !important;
+        border-radius: 20px !important;
+        box-shadow: 0 4px 20px rgba(0,0,0,0.08) !important;
+        
+        /* Ensure visible */
+        opacity: 1 !important;
+        transform: none !important;
+    }
+    
+    /* Closing statement slide */
+    .process-slide.statement[data-slide="5"] {
+        display: flex !important;
+        background: transparent !important;
+        border: none !important;
+        box-shadow: none !important;
+    }
+    
+    /* Override ANY state classes */
+    .process-section-horizontal .process-slide.active,
+    .process-section-horizontal .process-slide.exit-left,
+    .process-section-horizontal .process-slide:not(.active) {
+        position: relative !important;
+        transform: none !important;
+        -webkit-transform: none !important;
+        opacity: 1 !important;
+        visibility: visible !important;
+    }
+    
+    /* Statement typography */
+    .process-slide.statement h2 {
+        font-size: 1.6rem;
+        line-height: 1.2;
+        margin-bottom: 1rem;
+        color: var(--darker);
+    }
+    
+    .process-slide.statement p {
+        font-size: 1rem;
+        color: var(--dark);
+        opacity: 0.8;
+    }
+    
+    /* Step typography */
+    .step-number-large {
+        font-size: 2.5rem;
+        margin-bottom: 0.8rem;
+        opacity: 0.2;
+    }
+    
+    .process-slide.step h3 {
+        font-size: 1.2rem;
+        margin-bottom: 0.8rem;
+        color: var(--darker);
+    }
+    
+    .process-slide.step p {
+        font-size: 0.9rem;
+        line-height: 1.6;
+        color: var(--dark);
+        opacity: 0.85;
+    }
+    
+    /* CTA button */
+    .process-cta {
+        margin-top: 1.5rem;
+        padding: 14px 28px;
+        font-size: 0.95rem;
+        width: auto;
+    }
+    
+    /* Hide progress dots */
+    .process-progress {
+        display: none !important;
+    }
+}
+
+/* --- SMALL MOBILES (<480px) --- */
+@media (max-width: 480px) {
+    .calendar-embed iframe { 
+        height: 550px; 
+    }
+    
+    .process-section-horizontal .process-content-wrapper .process-slide {
+        width: 80vw !important;
+        max-width: 260px !important;
+        min-width: 230px !important;
+        min-height: 300px;
+        padding: 22px 18px;
+    }
+    
+    .process-slide.statement h2 { 
+        font-size: 1.4rem; 
+    }
+    
+    .step-number-large { 
+        font-size: 2rem; 
+    }
+    
+    .process-slide.step h3 {
+        font-size: 1.1rem;
+    }
+    
+    .process-slide.step p {
+        font-size: 0.85rem;
+    }
+}
+
+/* --- EXTRA SMALL (<380px) --- */
+@media (max-width: 380px) {
+    .process-section-horizontal .process-content-wrapper .process-slide {
+        width: 85vw !important;
+        min-width: 200px !important;
+        min-height: 280px;
+        padding: 20px 14px;
+    }
+    
+    .process-slide.statement h2 { 
+        font-size: 1.25rem; 
+    }
+    
+    .step-number-large {
+        font-size: 1.8rem;
+    }
+}
+
+/* ==========================================
+   14. COOKIE BANNER MOBILE
+   ========================================== */
+@media (max-width: 768px) {
+    .cookie-content {
+        flex-direction: column;
+        text-align: center;
+        gap: 15px;
+    }
+    
+    .cookie-buttons {
+        width: 100%;
+        justify-content: center;
+    }
+    
+    .cookie-btn {
+        width: 100%;
+        max-width: 150px;
+    }
+}
+
+/* ==========================================
+   15. UTILITY & SAFE AREAS
+   ========================================== */
+@media (max-width: 768px) {
+    /* Touch-friendly tap targets */
+    a, button {
+        min-height: 44px;
+    }
+    
+    /* Exception for inline links */
+    p a, .footer-col a, .person-email, .location-link, .phone-link, .social-link {
+        min-height: auto;
+    }
+    
+    /* Text readability */
+    body {
+        -webkit-text-size-adjust: 100%;
+        text-size-adjust: 100%;
+    }
+    
+    p, li, .faq-answer p {
+        word-break: break-word;
+        hyphens: auto;
+    }
+}
+
+/* Safe area for notched phones */
+@supports (padding: max(0px)) {
+    @media (max-width: 768px) {
+        .site-header {
+            padding-left: max(16px, env(safe-area-inset-left));
+            padding-right: max(16px, env(safe-area-inset-right));
+        }
+        
+        .site-footer {
+            padding-bottom: max(30px, env(safe-area-inset-bottom));
+        }
+        
+        .floating-chat-btn {
+            bottom: max(16px, env(safe-area-inset-bottom));
+            right: max(16px, env(safe-area-inset-right));
+        }
+    }
+}
+
+/* ==========================================
+   16. EXTRA SMALL SCREENS (< 360px)
+   ========================================== */
+@media (max-width: 360px) {
+    .site-header {
+        padding: 0 10px;
+    }
+    
+    .logo-text {
+        font-size: 1.1rem;
+    }
+    
+    h1, .hero-text h1 {
+        font-size: 1.8rem;
+    }
+    
+    .hero-section,
+    .booking-hero,
+    .services-hero-section,
+    .contact-hero-large {
+        padding-left: 12px;
+        padding-right: 12px;
+    }
+    
+    .grid-item {
+        margin: 6px 12px;
+        padding: 1.2rem;
+        width: calc(100% - 24px);
+    }
+    
+    .contact-box,
+    .form-wrapper {
+        padding: 24px 18px;
+    }
+    
+    .calendar-embed {
+        padding: 12px;
+    }
+    
+    .stats-bar {
+        grid-template-columns: 1fr;
+    }
+    
+    .stat-item {
+        border-right: none;
+        border-bottom: var(--border-style);
+    }
+    
+    .stat-item:last-child {
+        border-bottom: none;
+    }
+}
+
+/* ==========================================
+   17. WORK PAGE MOBILE FIXES (ADD TO END)
+   ========================================== */
+@media (max-width: 900px) {
+    /* Hero Adjustments */
+    .work-hero { padding: 120px 0 60px; }
+    .hero-desc { margin-left: 0; font-size: 1.1rem; }
+
+    /* List Items (Stack them vertically) */
+    .work-item {
+        grid-template-columns: 1fr; /* Μια στήλη */
+        gap: 1.5rem;
+        padding: 40px 0;
+    }
+
+    /* Meta section row */
+    .work-meta {
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+        border-bottom: 1px solid rgba(0,0,0,0.05);
+        padding-bottom: 1rem;
+    }
+    
+    .work-id { font-size: 2rem; }
+
+    .tech-stack {
+        flex-direction: row;
+        flex-wrap: wrap;
+    }
+    
+    /* Content */
+    .work-details h2 { font-size: 1.8rem; }
+    .work-details p { font-size: 1rem; }
+    
+    /* Badge Align Left */
+    .work-action { justify-content: flex-start; }
+    .status-badge { width: 100%; text-align: center; }
+    
+    /* CTA Stack */
+    .decision-grid { grid-template-columns: 1fr; gap: 20px; }
+    .decision-card { min-height: 300px; padding: 40px 20px; }
+    .cta-question { font-size: 2rem; text-align: left; }
+}
+}
+}

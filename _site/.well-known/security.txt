@@ -1,0 +1,29 @@
+# DynaWorks Security Policy
+# https://dynaworks.gr/.well-known/security.txt
+
+# If you discover a security vulnerability, please report it to us.
+# We appreciate your help in keeping DynaWorks and our users safe.
+
+Contact: mailto:info@dynaworks.gr
+Contact: mailto:dimitriskakokefalos@gmail.com
+
+# Preferred languages for communication
+Preferred-Languages: el, en
+
+# Our security policy page (optional - create if needed)
+# Policy: https://dynaworks.gr/security-policy
+
+# This file expires on (update yearly)
+Expires: 2026-12-31T23:59:00.000Z
+
+# We will acknowledge your report within 48 hours
+# and work with you to understand and resolve the issue.
+
+# Scope: *.dynaworks.gr
+
+# We kindly ask you to:
+# - Not publicly disclose the vulnerability before we fix it
+# - Not access or modify data belonging to others
+# - Act in good faith to avoid privacy violations
+
+# Thank you for helping keep DynaWorks secure!

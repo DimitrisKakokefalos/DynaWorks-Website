@@ -1,0 +1,437 @@
+/* ==========================================
+   BOOKING PAGE SPECIFIC STYLES
+   ========================================== */
+
+/* Booking Hero Section - BEIGE */
+.booking-hero {
+    min-height: 70vh;
+    display: flex;
+    align-items: center;
+    padding: 140px 0 80px;
+    background: var(--beige);
+    border-bottom: var(--border-style);
+    position: relative;
+}
+
+.booking-hero::before {
+    content: '';
+    position: absolute;
+    top: -30%;
+    right: -10%;
+    width: 600px;
+    height: 600px;
+    background: radial-gradient(circle, rgba(255, 107, 53, 0.12) 0%, transparent 70%);
+    border-radius: 50%;
+    pointer-events: none;
+}
+
+.booking-intro {
+    max-width: 800px;
+    margin: 0 auto;
+    text-align: center;
+    position: relative;
+    z-index: 2;
+    font-family: 'Space Grotesk', sans-serif;
+}
+
+.booking-tag {
+    display: inline-block;
+    padding: 8px 20px;
+    background: rgba(255, 107, 53, 0.15);
+    color: var(--primary);
+    border-radius: 50px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    margin-bottom: 2rem;
+    font-family: 'Space Grotesk', sans-serif;
+}
+
+.booking-intro h1 {
+    font-size: clamp(3rem, 8vw, 6rem);
+    margin-bottom: 2rem;
+    font-family: 'Space Grotesk', sans-serif;
+    color: var(--darker);
+}
+
+.booking-description {
+    font-size: 1.3rem;
+    line-height: 1.8;
+    color: var(--dark);
+    opacity: 0.9;
+    margin-bottom: 3rem;
+    font-family: 'Space Grotesk', sans-serif;
+}
+
+/* Feature Badges - Light theme */
+.booking-features {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    flex-wrap: wrap;
+}
+
+.feature-badge {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 12px 24px;
+    background: var(--light);
+    border: var(--border-style);
+    border-radius: 50px;
+    font-size: 0.95rem;
+    font-weight: 500;
+    color: var(--darker);
+    transition: var(--transition-smooth);
+}
+
+.feature-badge:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    border-color: var(--primary);
+}
+
+.badge-icon {
+    width: 24px;
+    height: 24px;
+    background: var(--primary);
+    color: var(--light);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    font-size: 0.85rem;
+    flex-shrink: 0;
+}
+
+/* Calendar Section - DARK background, BEIGE calendar */
+.calendar-section {
+    padding: 100px 0;
+    background: var(--darker);
+    border-bottom: var(--border-style);
+}
+
+.calendar-wrapper {
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+.calendar-header {
+    text-align: center;
+    margin-bottom: 60px;
+}
+
+.calendar-header h2 {
+    font-size: clamp(2rem, 5vw, 3.5rem);
+    margin-bottom: 1rem;
+    color: var(--beige);
+}
+
+.calendar-header p {
+    font-size: 1.2rem;
+    color: var(--beige);
+    opacity: 0.7;
+}
+
+.calendar-embed {
+    background: var(--beige);
+    border: none;
+    border-radius: 20px;
+    padding: 3rem;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+    overflow: hidden;
+}
+
+.calendar-embed iframe {
+    border-radius: 10px;
+    display: block;
+    width: 100%;
+}
+
+/* ==========================================
+   PROCESS SECTION - HORIZONTAL SCROLL ANIMATION
+   ========================================== */
+.process-section-horizontal {
+    background: var(--beige);
+    height: 100vh; /* Just one screen height - scroll lock handles the rest */
+    position: relative;
+}
+
+.process-sticky-container {
+    position: sticky;
+    top: 0;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+
+.process-content-wrapper {
+    position: relative;
+    width: 100%;
+    max-width: 600px;
+    height: 400px;
+    margin: 0 auto;
+    padding: 0 var(--container-padding);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Base Slide Styles */
+.process-slide {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: calc(100% - 40px);
+    max-width: 550px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    opacity: 0;
+    transform: translate(-50%, -50%) translateX(100%);
+    transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+    pointer-events: none;
+}
+
+/* Statement slides (intro & outro) - NO card style */
+.process-slide.statement {
+    background: transparent;
+    border: none;
+    box-shadow: none;
+    padding: 2rem;
+}
+
+/* Step slides - card style with light background */
+.process-slide.step {
+    padding: 3rem;
+    background: var(--light);
+    border: 2px solid transparent;
+    border-radius: 24px;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.08);
+}
+
+/* Active slide */
+.process-slide.active {
+    opacity: 1;
+    transform: translate(-50%, -50%) translateX(0);
+    pointer-events: auto;
+}
+
+.process-slide.step.active {
+    border-color: var(--primary);
+}
+
+/* Exiting slide (going left on scroll down) */
+.process-slide.exit-left {
+    opacity: 0;
+    transform: translate(-50%, -50%) translateX(-100%);
+}
+
+/* Statement Typography - HERO SIZE */
+.process-slide.statement h2 {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: clamp(3rem, 8vw, 6rem);
+    font-weight: 700;
+    color: var(--darker);
+    margin-bottom: 1.5rem;
+    line-height: 1.1;
+}
+
+.process-slide.statement p {
+    font-size: 1.4rem;
+    color: var(--dark);
+    opacity: 0.7;
+    max-width: 550px;
+    line-height: 1.6;
+}
+
+/* Step Typography - Dark text on light card */
+.process-slide.step h3 {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: clamp(1.5rem, 3vw, 2rem);
+    font-weight: 700;
+    color: var(--darker);
+    margin-bottom: 1rem;
+}
+
+.process-slide.step p {
+    font-size: 1.1rem;
+    color: var(--dark);
+    opacity: 0.8;
+    max-width: 450px;
+    line-height: 1.6;
+}
+
+.step-number-large {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 4rem;
+    font-weight: 700;
+    color: var(--primary);
+    opacity: 0.25;
+    line-height: 1;
+    margin-bottom: 1rem;
+}
+
+/* CTA Button */
+.process-cta {
+    display: inline-block;
+    margin-top: 2rem;
+    padding: 16px 36px;
+    background: var(--primary);
+    color: var(--light);
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 1rem;
+    font-weight: 600;
+    border-radius: 50px;
+    text-decoration: none;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.process-cta:hover {
+    background: var(--darker);
+    transform: translateY(-3px);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+}
+
+/* Progress Dots - Dark on beige */
+.process-progress {
+    position: absolute;
+    right: 40px;
+    top: 50%;
+    transform: translateY(-50%);
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.progress-dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: var(--dark);
+    opacity: 0.2;
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+.progress-dot.active {
+    opacity: 1;
+    background: var(--primary);
+    transform: scale(1.3);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .process-section-horizontal {
+        height: 100vh;
+    }
+    
+    .process-content-wrapper {
+        height: 350px;
+        padding: 0 20px;
+    }
+    
+    .process-slide {
+        width: calc(100% - 30px);
+    }
+    
+    .process-slide.step {
+        padding: 2rem;
+    }
+    
+    .step-number-large {
+        font-size: 3rem;
+    }
+    
+    .process-progress {
+        right: 15px;
+    }
+    
+    .progress-dot {
+        width: 8px;
+        height: 8px;
+    }
+}
+
+@media (max-width: 480px) {
+    .process-section-horizontal {
+        height: 100vh;
+    }
+    
+    .process-content-wrapper {
+        height: 320px;
+    }
+    
+    .process-slide.step {
+        padding: 1.5rem;
+    }
+    
+    .process-slide.statement h2 {
+        font-size: 1.8rem;
+    }
+    
+    .step-number-large {
+        font-size: 2.5rem;
+    }
+}
+
+/* Responsive - Booking Page */
+@media (max-width: 768px) {
+    .booking-hero {
+        min-height: 60vh;
+        padding: 120px 0 60px;
+    }
+
+    .booking-features {
+        flex-direction: column;
+        align-items: center;
+        gap: 1rem;
+    }
+
+    .feature-badge {
+        width: 100%;
+        max-width: 300px;
+        justify-content: center;
+    }
+
+    .calendar-embed {
+        padding: 1.5rem;
+    }
+
+    .calendar-embed iframe {
+        height: 700px;
+    }
+
+    .process-grid {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .booking-intro h1 {
+        font-size: 2.5rem;
+    }
+
+    .booking-description {
+        font-size: 1.1rem;
+    }
+
+    .calendar-embed {
+        padding: 1rem;
+    }
+
+    .calendar-embed iframe {
+        height: 650px;
+    }
+
+    .step-number {
+        font-size: 2.5rem;
+    }
+}
