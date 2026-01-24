@@ -1,18 +1,18 @@
 {
-    "name": "DynaWorks",
-    "description": "Intelligent Automation Agency - AI Agents, Workflow Automation, Web Development",
-    "url": "https://dynaworks.gr",
-    "email": "info@dynaworks.gr",
-    "phone": "+30 694 747 5977",
-    "location": "Αθήνα, Ελλάδα",
-    "social": {
-        "linkedin": "https://www.linkedin.com/company/dynaworks-gr",
-        "instagram": "https://www.instagram.com/dynaworks.gr",
-        "twitter": "https://twitter.com/dynaworks_gr",
-        "facebook": "https://www.facebook.com/dynaworks.gr"
-    },
-    "author": {
-        "name": "Dimitris",
-        "role": "Founder"
-    }
+  "name": "DynaWorks",
+  "description": "Intelligent Automation Agency - AI Agents, Workflow Automation, Web Development",
+  "url": "https://dynaworks.gr",
+  "email": "info@dynaworks.gr",
+  "phone": "+30 698 851 5413",
+  "location": "Αθήνα, Ελλάδα",
+  "social": {
+    "linkedin": "https://www.linkedin.com/company/dynaworks-gr",
+    "instagram": "https://www.instagram.com/dynaworks.gr",
+    "twitter": "https://twitter.com/dynaworks_gr",
+    "facebook": "https://www.facebook.com/dynaworks.gr"
+  },
+  "author": {
+    "name": "Dimitris",
+    "role": "Founder"
+  }
 }
